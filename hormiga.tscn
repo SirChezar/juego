@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://1v10lnee2id3"]
+
+[ext_resource type="Script" uid="uid://dhlbfelcg7bph" path="res://hormiga.gd" id="1_bo5m2"]
+[ext_resource type="Texture2D" uid="uid://dktqer8i3a75x" path="res://Hormiguita.png" id="2_3imk1"]
+[ext_resource type="Script" path="res://llamas_hormiga.gd" id="3_llamas"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqefc"]
+radius = 20.0
+height = 54.0
+
+[node name="hormiga" type="CharacterBody2D" unique_id=1978873511 groups=["hormiga"]]
+z_index = 2
+script = ExtResource("1_bo5m2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=532469519]
+position = Vector2(15.999999, 33.999996)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_3imk1")
+
+[node name="Llamas" type="Node2D" parent="."]
+z_index = 2
+position = Vector2(16, 40)
+script = ExtResource("3_llamas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=60619711]
+position = Vector2(16, 36)
+shape = SubResource("CapsuleShape2D_iqefc")

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bj81d6la57pv1"]
+
+[ext_resource type="Script" uid="uid://b0g8hev6l0me5" path="res://node_2d.gd" id="1_0hol4"]
+[ext_resource type="Texture2D" uid="uid://e0cmfievg1y4" path="res://arena-juego.jpg" id="1_epypp"]
+[ext_resource type="PackedScene" uid="uid://1v10lnee2id3" path="res://hormiga.tscn" id="2_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://cr7cggu6v38ea" path="res://agujero_pequeno.png" id="3_agujero_pequeno"]
+[ext_resource type="Texture2D" uid="uid://dvlf145medvi3" path="res://agujero_grande_superior.png" id="4_agujero_superior"]
+[ext_resource type="Texture2D" uid="uid://d2xxhtbu3v2ag" path="res://agujero_grande_inferior.png" id="5_agujero_inferior"]
+[ext_resource type="PackedScene" path="res://lupa.tscn" id="6_lupa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aviso_aparicion"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_agujero_pequeno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agujero_superior")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_agujero_inferior")
+}],
+"loop": 0,
+"name": &"aviso",
+"speed": 7.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6mlqo"]
+a = Vector2(-345, 1)
+b = Vector2(1256, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iqefc"]
+a = Vector2(-231, 649)
+b = Vector2(1225, 652)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wfsrv"]
+b = Vector2(0, 777)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r44rn"]
+a = Vector2(1151, -80)
+b = Vector2(1155, 736)
+
+[node name="Node2D" type="Node2D" unique_id=358160149]
+script = ExtResource("1_0hol4")
+escena_hormiga = ExtResource("2_q6r6c")
+cantidad_total = 10
+duracion = 20.0
+
+[node name="ArenaJuego" type="Sprite2D" parent="." unique_id=762894199]
+texture_repeat = 2
+position = Vector2(562, 327)
+scale = Vector2(0.09175805, 0.08997051)
+texture = ExtResource("1_epypp")
+region_enabled = true
+region_rect = Rect2(-1071, -408, 14135, 8136)
+
+[node name="AvisoAparicion" type="AnimatedSprite2D" parent="." unique_id=457804266]
+visible = false
+z_index = 1
+scale = Vector2(0.27, 0.27)
+sprite_frames = SubResource("SpriteFrames_aviso_aparicion")
+animation = &"aviso"
+
+[node name="Lupa" parent="." unique_id=1987246994 instance=ExtResource("6_lupa")]
+position = Vector2(180, 90)
+
+[node name="hormiga" parent="." unique_id=1978873511 instance=ExtResource("2_q6r6c")]
+position = Vector2(1406, 735)
+collision_layer = 2
+
+[node name="limites" type="StaticBody2D" parent="." unique_id=2003718015]
+
+[node name="arriba" type="CollisionShape2D" parent="limites" unique_id=449225248]
+shape = SubResource("SegmentShape2D_6mlqo")
+
+[node name="abajo" type="CollisionShape2D" parent="limites" unique_id=2000728139]
+shape = SubResource("SegmentShape2D_iqefc")
+
+[node name="izquierda" type="CollisionShape2D" parent="limites" unique_id=363579215]
+shape = SubResource("SegmentShape2D_wfsrv")
+
+[node name="derecha" type="CollisionShape2D" parent="limites" unique_id=2126060547]
+shape = SubResource("SegmentShape2D_r44rn")

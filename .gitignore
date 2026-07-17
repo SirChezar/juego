@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Temporary files and Godot movie recording output
+*.tmp
+/video/
+/video*.png
+/video*.png.import
+/video.wav
+/video.wav.import
