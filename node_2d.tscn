@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dvlf145medvi3" path="res://agujero_grande_superior.png" id="4_agujero_superior"]
 [ext_resource type="Texture2D" uid="uid://d2xxhtbu3v2ag" path="res://agujero_grande_inferior.png" id="5_agujero_inferior"]
 [ext_resource type="PackedScene" path="res://lupa.tscn" id="6_lupa"]
+[ext_resource type="Texture2D" path="res://caramelo.svg" id="7_caramelo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aviso_aparicion"]
 animations = [{
@@ -39,6 +40,24 @@ b = Vector2(0, 777)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_r44rn"]
 a = Vector2(1151, -80)
 b = Vector2(1155, 736)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_contador"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+bg_color = Color(0.18, 0.075, 0.035, 0.88)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.72, 0.18, 0.95)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 6
 
 [node name="Node2D" type="Node2D" unique_id=358160149]
 script = ExtResource("1_0hol4")
@@ -81,3 +100,40 @@ shape = SubResource("SegmentShape2D_wfsrv")
 
 [node name="derecha" type="CollisionShape2D" parent="limites" unique_id=2126060547]
 shape = SubResource("SegmentShape2D_r44rn")
+
+[node name="Interfaz" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ContadorCaramelos" type="PanelContainer" parent="Interfaz"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -174.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_contador")
+
+[node name="Contenido" type="HBoxContainer" parent="Interfaz/ContadorCaramelos"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Icono" type="TextureRect" parent="Interfaz/ContadorCaramelos/Contenido"]
+custom_minimum_size = Vector2(64, 42)
+layout_mode = 2
+texture = ExtResource("7_caramelo")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Etiqueta" type="Label" parent="Interfaz/ContadorCaramelos/Contenido"]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.91, 0.66, 1)
+theme_override_colors/font_outline_color = Color(0.22, 0.05, 0.02, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 26
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

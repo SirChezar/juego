@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal muerta(posicion_global: Vector2)
+
 @export var velocidad := 120.0
 @export var vida_maxima := 100.0
 
@@ -13,7 +15,7 @@ var tiempo_ardiendo := 0.0
 var dano_ardor_por_segundo := 0.0
 var tiempo_animacion := 0.0
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var llamas = $Llamas
 
 func _ready():
@@ -32,6 +34,7 @@ func _physics_process(delta):
 		elegir_direccion()
 
 	velocity = direccion * velocidad
+	sprite.flip_h = direccion.x > 0.0
 	move_and_slide()
 
 	# Si chocó con una pared, se aleja en otra dirección.
@@ -65,6 +68,7 @@ func recibir_dano(cantidad: float):
 	_actualizar_color()
 
 	if vida_actual <= 0.0:
+		muerta.emit(global_position)
 		queue_free()
 
 func aplicar_quemadura(duracion: float, dano_por_segundo: float):

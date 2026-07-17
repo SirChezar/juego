@@ -1,8 +1,44 @@
 [gd_scene format=3 uid="uid://1v10lnee2id3"]
 
 [ext_resource type="Script" uid="uid://dhlbfelcg7bph" path="res://hormiga.gd" id="1_bo5m2"]
-[ext_resource type="Texture2D" uid="uid://dktqer8i3a75x" path="res://Hormiguita.png" id="2_3imk1"]
+[ext_resource type="Texture2D" path="res://hormiga_caminata.png" id="2_caminata"]
 [ext_resource type="Script" path="res://llamas_hormiga.gd" id="3_llamas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paso_1"]
+atlas = ExtResource("2_caminata")
+region = Rect2(0, 0, 627, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paso_2"]
+atlas = ExtResource("2_caminata")
+region = Rect2(627, 0, 627, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paso_3"]
+atlas = ExtResource("2_caminata")
+region = Rect2(0, 627, 627, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paso_4"]
+atlas = ExtResource("2_caminata")
+region = Rect2(627, 627, 627, 627)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_caminata"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paso_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paso_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paso_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paso_4")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 8.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqefc"]
 radius = 20.0
@@ -12,10 +48,13 @@ height = 54.0
 z_index = 2
 script = ExtResource("1_bo5m2")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=532469519]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=532469519]
+texture_filter = 1
 position = Vector2(15.999999, 33.999996)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_3imk1")
+sprite_frames = SubResource("SpriteFrames_caminata")
+animation = &"caminar"
+autoplay = "caminar"
 
 [node name="Llamas" type="Node2D" parent="."]
 z_index = 2
