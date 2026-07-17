@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://menu_principal.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://arena-juego.jpg" id="2_fondo"]
+[ext_resource type="Theme" path="res://tema_menu.tres" id="3_tema"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_tema")
+script = ExtResource("1_menu")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_fondo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Oscurecer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08, 0.025, 0.012, 0.56)
+
+[node name="MargenSeguro" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 24.0
+offset_right = -36.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Centrador" type="CenterContainer" parent="MargenSeguro"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="MargenSeguro/Centrador"]
+custom_minimum_size = Vector2(470, 0)
+layout_mode = 2
+
+[node name="Contenido" type="VBoxContainer" parent="MargenSeguro/Centrador/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="Titulo" type="Label" parent="MargenSeguro/Centrador/Panel/Contenido"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.76, 0.26, 1)
+theme_override_colors/font_outline_color = Color(0.19, 0.035, 0.01, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 46
+text = "ANT BURNER"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="MargenSeguro/Centrador/Panel/Contenido"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.7, 0.9)
+theme_override_font_sizes/font_size = 17
+text = "Convierte el sol en tu mejor arma"
+horizontal_alignment = 1
+
+[node name="Separador" type="Control" parent="MargenSeguro/Centrador/Panel/Contenido"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="BotonJugar" type="Button" parent="MargenSeguro/Centrador/Panel/Contenido"]
+custom_minimum_size = Vector2(390, 76)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../BotonTienda")
+text = "JUGAR"
+
+[node name="BotonTienda" type="Button" parent="MargenSeguro/Centrador/Panel/Contenido"]
+custom_minimum_size = Vector2(390, 76)
+layout_mode = 2
+focus_neighbor_top = NodePath("../BotonJugar")
+focus_neighbor_bottom = NodePath("../BotonOpciones")
+text = "TIENDA"
+
+[node name="BotonOpciones" type="Button" parent="MargenSeguro/Centrador/Panel/Contenido"]
+custom_minimum_size = Vector2(390, 76)
+layout_mode = 2
+focus_neighbor_top = NodePath("../BotonTienda")
+text = "OPCIONES"
+
+[node name="Ayuda" type="Label" parent="MargenSeguro/Centrador/Panel/Contenido"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.62, 0.68)
+theme_override_font_sizes/font_size = 14
+text = "Toca un botón para continuar"
+horizontal_alignment = 1

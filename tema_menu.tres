@@ -1,0 +1,102 @@
+[gd_resource type="Theme" load_steps=8 format=3]
+
+[sub_resource type="StyleBoxFlat" id="StylePanel"]
+content_margin_left = 38.0
+content_margin_top = 28.0
+content_margin_right = 38.0
+content_margin_bottom = 28.0
+bg_color = Color(0.12, 0.045, 0.018, 0.94)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.62, 0.12, 0.92)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0, 0, 0, 0.48)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBotonNormal"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.31, 0.105, 0.035, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.96, 0.41, 0.08, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBotonHover"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.48, 0.17, 0.045, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.72, 0.18, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBotonPresionado"]
+content_margin_left = 24.0
+content_margin_top = 4.0
+content_margin_right = 24.0
+bg_color = Color(0.77, 0.25, 0.035, 1)
+border_width_left = 3
+border_width_top = 5
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(1, 0.84, 0.36, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBotonFoco"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.9, 0.48, 0.9)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleDeslizador"]
+bg_color = Color(0.25, 0.09, 0.035, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleRelleno"]
+bg_color = Color(1, 0.48, 0.08, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+default_font_size = 18
+Button/colors/font_color = Color(1, 0.94, 0.76, 1)
+Button/colors/font_hover_color = Color(1, 0.98, 0.84, 1)
+Button/colors/font_pressed_color = Color(1, 1, 0.9, 1)
+Button/font_sizes/font_size = 27
+Button/styles/normal = SubResource("StyleBotonNormal")
+Button/styles/hover = SubResource("StyleBotonHover")
+Button/styles/pressed = SubResource("StyleBotonPresionado")
+Button/styles/focus = SubResource("StyleBotonFoco")
+HSlider/styles/slider = SubResource("StyleDeslizador")
+HSlider/styles/grabber_area = SubResource("StyleRelleno")
+HSlider/styles/grabber_area_highlight = SubResource("StyleRelleno")
+PanelContainer/styles/panel = SubResource("StylePanel")

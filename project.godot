@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="ant_burner"
-run/main_scene="res://node_2d.tscn"
+run/main_scene="res://menu_principal.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1152
+window/size/viewport_height=648
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

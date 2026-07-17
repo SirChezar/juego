@@ -1,6 +1,7 @@
 extends Node2D
 
 const Caramelo = preload("res://caramelo.gd")
+const CadaverHormiga = preload("res://cadaver_hormiga.gd")
 
 @export var escena_hormiga: PackedScene
 @export var cantidad_total := 15
@@ -77,7 +78,12 @@ func _registrar_hormiga(hormiga: Node):
 	if not hormiga.is_connected("muerta", callable):
 		hormiga.connect("muerta", callable)
 
-func _al_morir_hormiga(posicion_global: Vector2):
+func _al_morir_hormiga(posicion_global: Vector2, volteada: bool):
+	var cadaver = CadaverHormiga.new()
+	cadaver.volteado = volteada
+	add_child(cadaver)
+	cadaver.global_position = posicion_global
+
 	var caramelo = Caramelo.new()
 	add_child(caramelo)
 	caramelo.global_position = posicion_global

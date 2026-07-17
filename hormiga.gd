@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal muerta(posicion_global: Vector2)
+signal muerta(posicion_global: Vector2, volteada: bool)
 
 @export var velocidad := 120.0
 @export var vida_maxima := 100.0
@@ -68,7 +68,7 @@ func recibir_dano(cantidad: float):
 	_actualizar_color()
 
 	if vida_actual <= 0.0:
-		muerta.emit(global_position)
+		muerta.emit(global_position, sprite.flip_h)
 		queue_free()
 
 func aplicar_quemadura(duracion: float, dano_por_segundo: float):
